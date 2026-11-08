@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -16,6 +17,7 @@ OUT = Path("outputs/scenarios"); OUT.mkdir(parents=True, exist_ok=True)
 env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
 
 for sc in scenarios:
+
     if wanted and sc["id"] not in wanted:
         continue
     print(f"\n===== {sc['id']} {sc['title']} (snapshot {sc['status_profile']}) =====")
@@ -51,3 +53,10 @@ for sc in scenarios:
         subprocess.run([sys.executable, "helpdesk.py", "batch", "--scenario", sc["id"],
                         "--status", sc["status_profile"]],
                        input=json.dumps(seg), text=True, encoding="utf-8", check=True, env=env)
+
+    # keep the ticket drafts: the next scenario's reset would delete local-storage
+    src = Path(os.getenv("HELPDESK_STORAGE_DIR", "local-storage")) / "tickets"
+    dst = Path("outputs/tickets") / sc["id"]
+    shutil.rmtree(dst, ignore_errors=True)
+    if src.exists():
+        shutil.copytree(src, dst)

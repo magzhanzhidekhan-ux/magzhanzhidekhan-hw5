@@ -1,0 +1,146 @@
+{
+  "scenario": "S09",
+  "status_profile": "normal",
+  "model": "gpt-5.6-luna",
+  "provider": "openai",
+  "segments": [
+    {
+      "process_id": 1684,
+      "events": [
+        {
+          "scenario": "S09",
+          "user_id": "demo-user-a",
+          "thread_id": "s09",
+          "status_profile": "normal",
+          "user_message": "Prepare a support ticket.",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread s09)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent"
+          ],
+          "tool_requests": [],
+          "tool_results": [],
+          "final_response": "What problem should the ticket describe—Wi‑Fi or a password/account-recovery issue? Also, what steps have you already tried?",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 2
+        },
+        {
+          "scenario": "S09",
+          "user_id": "demo-user-a",
+          "thread_id": "s09",
+          "status_profile": "normal",
+          "user_message": "The issue is Wi-Fi. I enabled it and tried reconnecting, but it still fails.",
+          "conversation_messages_read": 2,
+          "conversation_memory_source": "checkpoint (SQLite, thread s09)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent",
+            "tools",
+            "agent",
+            "tools",
+            "agent"
+          ],
+          "tool_requests": [
+            {
+              "id": "call_PX3lia13lieldlEpFd89E4Di",
+              "tool": "find_instructions",
+              "args": {
+                "topic": "wifi"
+              }
+            },
+            {
+              "id": "call_TMJhyeiS2ezQyF1EqEX0YOCK",
+              "tool": "check_service_status",
+              "args": {
+                "service": "wifi"
+              }
+            },
+            {
+              "id": "call_rKLjOCpI39Or7NrvYib4WI4q",
+              "tool": "prepare_ticket",
+              "args": {
+                "category": "wifi",
+                "summary": "Wi-Fi connection fails after enabling Wi-Fi and trying to reconnect.",
+                "steps_tried": [
+                  "Enabled Wi-Fi",
+                  "Tried reconnecting"
+                ],
+                "service_status": "operational"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "id": "call_PX3lia13lieldlEpFd89E4Di",
+              "tool": "find_instructions",
+              "result": {
+                "topic": "wifi",
+                "title": "Connect to the practice campus network",
+                "steps": [
+                  "Check that Wi-Fi is enabled and airplane mode is off.",
+                  "Select the fictional Campus-Demo network.",
+                  "If connection fails, forget the saved network and try connecting again.",
+                  "If the problem remains, check the service status before preparing a ticket."
+                ],
+                "instruction_id": "GUIDE-WIFI",
+                "source": "data/helpdesk.json"
+              },
+              "source": "reference file data/helpdesk.json",
+              "seconds": 0.00088
+            },
+            {
+              "id": "call_TMJhyeiS2ezQyF1EqEX0YOCK",
+              "tool": "check_service_status",
+              "result": {
+                "service": "wifi",
+                "status": "operational",
+                "message": "The demo Wi-Fi service has no reported outage.",
+                "status_profile": "normal"
+              },
+              "source": "data/service_status.json snapshot",
+              "seconds": 0.00056
+            },
+            {
+              "id": "call_rKLjOCpI39Or7NrvYib4WI4q",
+              "tool": "prepare_ticket",
+              "result": {
+                "ticket_id": "TCK-66242c68",
+                "path": "local-storage\\tickets\\TCK-66242c68.json",
+                "ticket": {
+                  "ticket_id": "TCK-66242c68",
+                  "status": "draft",
+                  "user_id": "demo-user-a",
+                  "thread_id": "s09",
+                  "category": "wifi",
+                  "summary": "Wi-Fi connection fails after enabling Wi-Fi and trying to reconnect.",
+                  "steps_tried": [
+                    "Enabled Wi-Fi",
+                    "Tried reconnecting"
+                  ],
+                  "service_status": "operational",
+                  "status_profile": "normal",
+                  "reference_ids": [
+                    "GUIDE-WIFI"
+                  ]
+                },
+                "note": "Local draft only. Nothing was sent."
+              },
+              "source": "local ticket file",
+              "seconds": 0.00183
+            }
+          ],
+          "final_response": "Your local support ticket draft is ready.\n\n- **Ticket ID:** TCK-66242c68\n- **File:** `local-storage\\tickets\\TCK-66242c68.json`\n- **Service status:** Operational\n\nNothing was sent.",
+          "ticket_files": [
+            "local-storage\\tickets\\TCK-66242c68.json"
+          ],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 9
+        }
+      ]
+    }
+  ]
+}

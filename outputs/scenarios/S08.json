@@ -1,0 +1,81 @@
+{
+  "scenario": "S08",
+  "status_profile": "status_unavailable",
+  "model": "gpt-5.6-luna",
+  "provider": "openai",
+  "segments": [
+    {
+      "process_id": 22424,
+      "events": [
+        {
+          "scenario": "S08",
+          "user_id": "demo-user-a",
+          "thread_id": "s08",
+          "status_profile": "status_unavailable",
+          "user_message": "Check whether Wi-Fi is down. If it is operating, prepare a ticket. I already enabled Wi-Fi and reconnected, with no success.",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread s08)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent",
+            "tools",
+            "agent"
+          ],
+          "tool_requests": [
+            {
+              "id": "call_GXidAarfRrmbosVh71UDciJR",
+              "tool": "check_service_status",
+              "args": {
+                "service": "wifi"
+              }
+            },
+            {
+              "id": "call_LV75pQs8KHtqk4b0dMomoiD1",
+              "tool": "find_instructions",
+              "args": {
+                "topic": "wifi"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "id": "call_GXidAarfRrmbosVh71UDciJR",
+              "tool": "check_service_status",
+              "result": {
+                "service": "wifi",
+                "status": "unknown",
+                "message": "The demo Wi-Fi status source is unavailable.",
+                "status_profile": "status_unavailable"
+              },
+              "source": "data/service_status.json snapshot",
+              "seconds": 0.00106
+            },
+            {
+              "id": "call_LV75pQs8KHtqk4b0dMomoiD1",
+              "tool": "find_instructions",
+              "result": {
+                "topic": "wifi",
+                "title": "Connect to the practice campus network",
+                "steps": [
+                  "Check that Wi-Fi is enabled and airplane mode is off.",
+                  "Select the fictional Campus-Demo network.",
+                  "If connection fails, forget the saved network and try connecting again.",
+                  "If the problem remains, check the service status before preparing a ticket."
+                ],
+                "instruction_id": "GUIDE-WIFI",
+                "source": "data/helpdesk.json"
+              },
+              "source": "reference file data/helpdesk.json",
+              "seconds": 0.00053
+            }
+          ],
+          "final_response": "The Wi-Fi status source is unavailable, so I can’t confirm whether there is an outage or whether the service is operating. I did not prepare a ticket because your condition requires the service to be confirmed operational.\n\nYou already tried enabling Wi-Fi and reconnecting. Nothing was sent.",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 5
+        }
+      ]
+    }
+  ]
+}

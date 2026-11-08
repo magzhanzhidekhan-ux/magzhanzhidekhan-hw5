@@ -1,0 +1,30 @@
+{
+  "scenario": "S02",
+  "status_profile": "normal",
+  "graph_variant": "original",
+  "runs": [
+    {
+      "message": "I forgot my PASSWORD.",
+      "node_order": [
+        "read_request",
+        "password_help"
+      ],
+      "states": [
+        {
+          "message": "I forgot my PASSWORD."
+        },
+        {
+          "message": "I forgot my PASSWORD.",
+          "category": "password"
+        },
+        {
+          "message": "I forgot my PASSWORD.",
+          "category": "password",
+          "reply": "Recover access to the practice account [GUIDE-PASSWORD]\n1. Open the practice sign-in screen and choose Forgot password.\n2. Follow the recovery instructions shown by the practice application.\n3. If recovery is unavailable, prepare a ticket describing the error.\n4. Never include a password or recovery code in a ticket."
+        }
+      ],
+      "user_id": "demo-user-a",
+      "thread_id": "s02"
+    }
+  ]
+}

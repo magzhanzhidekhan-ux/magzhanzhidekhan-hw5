@@ -1,0 +1,83 @@
+{
+  "scenario": "S11",
+  "status_profile": "normal",
+  "model": "gpt-5.6-luna",
+  "provider": "openai",
+  "segments": [
+    {
+      "process_id": 15012,
+      "events": [
+        {
+          "scenario": "S11",
+          "user_id": "demo-user-a",
+          "thread_id": "restart-a",
+          "status_profile": "normal",
+          "user_message": "Please remember that I prefer replies in Kazakh. My issue is Wi-Fi. I enabled it and tried reconnecting, but it still fails.",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread restart-a)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent",
+            "tools",
+            "agent"
+          ],
+          "tool_requests": [
+            {
+              "id": "call_XksY5pTZPuJe50g1AeiO7jNS",
+              "tool": "save_user_preference",
+              "args": {
+                "key": "language",
+                "value": "Kazakh"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "id": "call_XksY5pTZPuJe50g1AeiO7jNS",
+              "tool": "save_user_preference",
+              "result": {
+                "saved": {
+                  "language": "Kazakh"
+                }
+              },
+              "source": "user memory (write)",
+              "seconds": 0.00439
+            }
+          ],
+          "final_response": "Қалауыңызды есте сақтадым — бұдан әрі қазақ тілінде жауап беремін.\n\nWi‑Fi бойынша нұсқаулық қажет пе, әлде осы мәселе бойынша жергілікті тикет жобасын дайындайын ба? Тикет дайындауым үшін нақты өтінішіңізді растаңыз.",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 4
+        }
+      ]
+    },
+    {
+      "process_id": 21532,
+      "events": [
+        {
+          "scenario": "S11",
+          "user_id": "demo-user-a",
+          "thread_id": "restart-a",
+          "status_profile": "normal",
+          "user_message": "Which problem and steps did we discuss?",
+          "conversation_messages_read": 4,
+          "conversation_memory_source": "checkpoint (SQLite, thread restart-a)",
+          "user_memory_read": {
+            "language": "Kazakh"
+          },
+          "nodes": [
+            "load_user_memory",
+            "agent"
+          ],
+          "tool_requests": [],
+          "tool_results": [],
+          "final_response": "Осы әңгімеде мына мәселе талқыланды:\n\n- **Мәселе:** Wi‑Fi қосылмайды/желіге қосылу сәтсіз.\n- **Сіз жасап көрген қадамдар:** Wi‑Fi-ды қостыңыз және қайта қосылуға тырыстыңыз.\n\nБасқа қадамдар талқыланған жоқ.",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 6
+        }
+      ]
+    }
+  ]
+}

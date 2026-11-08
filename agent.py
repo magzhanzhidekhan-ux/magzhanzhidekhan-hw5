@@ -25,7 +25,9 @@ Rules:
 - A ticket is only a local draft. Say nothing was sent, and give the ticket id and file path from the tool result.
 - If the user asks you to remember the language of replies, call save_user_preference(key='language', value=...).
 - Answer questions about earlier messages only from this conversation's history. If there is none, say so.
-- If a language preference is saved below, write your replies in that language."""
+- If a language preference is saved below, write your replies in that language.
+- Call prepare_ticket only if the user explicitly asks for a ticket or accepts your offer. Do not check service status unless the user asks, or a ticket or outage question requires it.
+- When you mention a file path, copy it exactly from the tool result."""
 
 
 class AgentState(TypedDict, total=False):

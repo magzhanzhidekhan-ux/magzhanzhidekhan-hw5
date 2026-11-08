@@ -1,0 +1,103 @@
+{
+  "scenario": "S13",
+  "status_profile": "normal",
+  "model": "gpt-5.6-luna",
+  "provider": "openai",
+  "segments": [
+    {
+      "process_id": 21360,
+      "events": [
+        {
+          "scenario": "S13",
+          "user_id": "demo-user-a",
+          "thread_id": "isolation-a",
+          "status_profile": "normal",
+          "user_message": "Please remember that I prefer replies in Kazakh. I have a Wi-Fi problem.",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread isolation-a)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent",
+            "tools",
+            "agent",
+            "tools",
+            "agent"
+          ],
+          "tool_requests": [
+            {
+              "id": "call_yiqAJ45iP8KSZ30pLjFpbzgA",
+              "tool": "save_user_preference",
+              "args": {
+                "key": "language",
+                "value": "Kazakh"
+              }
+            },
+            {
+              "id": "call_TexBibgY2Xp5ywbttwgtFDwT",
+              "tool": "find_instructions",
+              "args": {
+                "topic": "wifi"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "id": "call_yiqAJ45iP8KSZ30pLjFpbzgA",
+              "tool": "save_user_preference",
+              "result": {
+                "saved": {
+                  "language": "Kazakh"
+                }
+              },
+              "source": "user memory (write)",
+              "seconds": 0.00362
+            },
+            {
+              "id": "call_TexBibgY2Xp5ywbttwgtFDwT",
+              "tool": "find_instructions",
+              "result": {
+                "topic": "wifi",
+                "title": "Connect to the practice campus network",
+                "steps": [
+                  "Check that Wi-Fi is enabled and airplane mode is off.",
+                  "Select the fictional Campus-Demo network.",
+                  "If connection fails, forget the saved network and try connecting again.",
+                  "If the problem remains, check the service status before preparing a ticket."
+                ],
+                "instruction_id": "GUIDE-WIFI",
+                "source": "data/helpdesk.json"
+              },
+              "source": "reference file data/helpdesk.json",
+              "seconds": 0.00103
+            }
+          ],
+          "final_response": "Түсіндім — бұдан әрі жауаптарымды қазақ тілінде беремін.\n\nWi‑Fi мәселесі бойынша мына нұсқауларды орындаңыз:\n\n1. Wi‑Fi қосулы, ал ұшақ режимі өшірулі екенін тексеріңіз.\n2. **Campus-Demo** желісін таңдаңыз.\n3. Қосылмаса, сақталған желіні ұмытып, қайта қосылып көріңіз.\n4. Мәселе шешілмесе, билет дайындамас бұрын қызмет мәртебесін тексеру қажет.\n\nҚай қадамдарды орындап көрдіңіз және нақты қандай мәселе пайда болды?",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 6
+        },
+        {
+          "scenario": "S13",
+          "user_id": "demo-user-b",
+          "thread_id": "isolation-b",
+          "status_profile": "normal",
+          "user_message": "Have I told you a preferred language or a previous problem?",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread isolation-b)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent"
+          ],
+          "tool_requests": [],
+          "tool_results": [],
+          "final_response": "No. In this conversation, you haven’t specified a preferred language or mentioned a previous problem.",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 2
+        }
+      ]
+    }
+  ]
+}

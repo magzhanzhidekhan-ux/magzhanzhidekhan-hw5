@@ -1,0 +1,110 @@
+{
+  "scenario": "S12",
+  "status_profile": "normal",
+  "model": "gpt-5.6-luna",
+  "provider": "openai",
+  "segments": [
+    {
+      "process_id": 8352,
+      "events": [
+        {
+          "scenario": "S12",
+          "user_id": "demo-user-a",
+          "thread_id": "preference-a1",
+          "status_profile": "normal",
+          "user_message": "Please remember that I prefer replies in Kazakh. I have a Wi-Fi problem.",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread preference-a1)",
+          "user_memory_read": {},
+          "nodes": [
+            "load_user_memory",
+            "agent",
+            "tools",
+            "agent",
+            "tools",
+            "agent"
+          ],
+          "tool_requests": [
+            {
+              "id": "call_naow2B3GaxDHhblFeiSXVyyr",
+              "tool": "save_user_preference",
+              "args": {
+                "key": "language",
+                "value": "Kazakh"
+              }
+            },
+            {
+              "id": "call_9waYrYeLDEGWds7UFfEK4j7g",
+              "tool": "find_instructions",
+              "args": {
+                "topic": "wifi"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "id": "call_naow2B3GaxDHhblFeiSXVyyr",
+              "tool": "save_user_preference",
+              "result": {
+                "saved": {
+                  "language": "Kazakh"
+                }
+              },
+              "source": "user memory (write)",
+              "seconds": 0.00379
+            },
+            {
+              "id": "call_9waYrYeLDEGWds7UFfEK4j7g",
+              "tool": "find_instructions",
+              "result": {
+                "topic": "wifi",
+                "title": "Connect to the practice campus network",
+                "steps": [
+                  "Check that Wi-Fi is enabled and airplane mode is off.",
+                  "Select the fictional Campus-Demo network.",
+                  "If connection fails, forget the saved network and try connecting again.",
+                  "If the problem remains, check the service status before preparing a ticket."
+                ],
+                "instruction_id": "GUIDE-WIFI",
+                "source": "data/helpdesk.json"
+              },
+              "source": "reference file data/helpdesk.json",
+              "seconds": 0.0009
+            }
+          ],
+          "final_response": "Тіл қалауыңыз сақталды — бұдан былай қазақша жауап беремін.\n\nWi‑Fi бойынша мына нұсқауларды орындаңыз:\n\n1. Wi‑Fi қосулы, ал ұшақ режимі өшірулі екенін тексеріңіз.\n2. **Campus-Demo** желісін таңдаңыз.\n3. Қосылмаса, сақталған желіні өшіріп, қайта қосылып көріңіз.\n4. Мәселе шешілмесе, қызмет күйін тексеріңіз.\n\nҚай қадамдарды орындап көрдіңіз және нақты қандай мәселе болып тұр?",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 6
+        }
+      ]
+    },
+    {
+      "process_id": 5732,
+      "events": [
+        {
+          "scenario": "S12",
+          "user_id": "demo-user-a",
+          "thread_id": "preference-a2",
+          "status_profile": "normal",
+          "user_message": "Which language did I ask you to use? What can you help with?",
+          "conversation_messages_read": 0,
+          "conversation_memory_source": "checkpoint (SQLite, thread preference-a2)",
+          "user_memory_read": {
+            "language": "Kazakh"
+          },
+          "nodes": [
+            "load_user_memory",
+            "agent"
+          ],
+          "tool_requests": [],
+          "tool_results": [],
+          "final_response": "Сіз жауаптарды **қазақ тілінде** беруді сұрадыңыз.\n\nМен мыналарға көмектесе аламын:\n\n- Wi‑Fi ақауларын жою;\n- Құпиясөзді қалпына келтіру бойынша нұсқаулық беру;\n- Wi‑Fi немесе аккаунтты қалпына келтіру қызметінің күйін тексеру;\n- Жергілікті helpdesk билетінің жобасын дайындау.\n\nБасқа мәселелер менің қамту аясымнан тыс. Мәселеңіз Wi‑Fi-ға немесе құпиясөзге қатысты ма?",
+          "ticket_files": [],
+          "loop_limit_reached": false,
+          "conversation_messages_after": 2
+        }
+      ]
+    }
+  ]
+}

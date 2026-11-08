@@ -114,7 +114,7 @@ def prepare_ticket(category: Literal["wifi", "password"], summary: str,
     tool: ask the user. service_status is the status you actually checked, or 'not_checked'."""
     c = _ctx(config)
     return prepare_ticket_impl(category, summary, steps_tried, service_status,
-                               c.get("user_id"), c.get("thread_id"),
+                               c.get("user_id"), c.get("thread_id_public") or c.get("thread_id"),
                                c.get("status_profile"), c.get("storage_dir"))
 
 

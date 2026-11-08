@@ -1,0 +1,30 @@
+{
+  "scenario": "S05",
+  "status_profile": "normal",
+  "graph_variant": "changed",
+  "runs": [
+    {
+      "message": "My Wi-Fi password does not work.",
+      "node_order": [
+        "read_request",
+        "clarify_problem"
+      ],
+      "states": [
+        {
+          "message": "My Wi-Fi password does not work."
+        },
+        {
+          "message": "My Wi-Fi password does not work.",
+          "category": "both"
+        },
+        {
+          "message": "My Wi-Fi password does not work.",
+          "category": "both",
+          "reply": "Your message mentions both Wi-Fi and a password. Which problem do you want to solve first: Wi-Fi or password?"
+        }
+      ],
+      "user_id": "demo-user-a",
+      "thread_id": "s05"
+    }
+  ]
+}
