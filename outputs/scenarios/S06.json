@@ -5,7 +5,7 @@
   "provider": "openai",
   "segments": [
     {
-      "process_id": 12820,
+      "process_id": 24976,
       "events": [
         {
           "scenario": "S06",
@@ -24,7 +24,7 @@
           ],
           "tool_requests": [
             {
-              "id": "call_u2Bbc8up1o4PNxfuaxeuRxCn",
+              "id": "call_Tn2n2lQJHH6pqmF6HWxKCg7O",
               "tool": "find_instructions",
               "args": {
                 "topic": "wifi"
@@ -33,7 +33,7 @@
           ],
           "tool_results": [
             {
-              "id": "call_u2Bbc8up1o4PNxfuaxeuRxCn",
+              "id": "call_Tn2n2lQJHH6pqmF6HWxKCg7O",
               "tool": "find_instructions",
               "result": {
                 "topic": "wifi",
@@ -48,10 +48,10 @@
                 "source": "data/helpdesk.json"
               },
               "source": "reference file data/helpdesk.json",
-              "seconds": 0.00101
+              "seconds": 0.0009
             }
           ],
-          "final_response": "**Wi‑Fi troubleshooting steps** (Guide: `GUIDE-WIFI`):\n\n1. Check that Wi‑Fi is enabled and airplane mode is off.\n2. Select the fictional **Campus-Demo** network.\n3. If connection fails, forget the saved network and try connecting again.\n4. If the problem remains, check the service status before preparing a ticket.",
+          "final_response": "### Wi-Fi troubleshooting steps\n\n1. Check that Wi-Fi is enabled and airplane mode is off.\n2. Select the fictional **Campus-Demo** network.\n3. If connection fails, forget the saved network and try connecting again.\n4. If the problem remains, check the service status before preparing a ticket.",
           "ticket_files": [],
           "loop_limit_reached": false,
           "conversation_messages_after": 4
@@ -75,21 +75,21 @@
           ],
           "tool_requests": [
             {
-              "id": "call_6WuQvuhNdIDMrFObuPFE2CZx",
+              "id": "call_4ndCEyRxeEuqKSuZJXdSGkIS",
               "tool": "check_service_status",
               "args": {
                 "service": "wifi"
               }
             },
             {
-              "id": "call_EVQz4J6r8NjCnNYsZOjiwDIo",
+              "id": "call_6KdDWNCIpCc31W5XmIHeEtmQ",
               "tool": "prepare_ticket",
               "args": {
                 "category": "wifi",
                 "summary": "Campus-Demo will not connect after Wi-Fi was enabled and the saved network was forgotten.",
                 "steps_tried": [
-                  "Enabled Wi-Fi.",
-                  "Forgot the saved network."
+                  "Enabled Wi-Fi",
+                  "Forgot the saved network"
                 ],
                 "service_status": "operational"
               }
@@ -97,7 +97,7 @@
           ],
           "tool_results": [
             {
-              "id": "call_6WuQvuhNdIDMrFObuPFE2CZx",
+              "id": "call_4ndCEyRxeEuqKSuZJXdSGkIS",
               "tool": "check_service_status",
               "result": {
                 "service": "wifi",
@@ -106,24 +106,24 @@
                 "status_profile": "normal"
               },
               "source": "data/service_status.json snapshot",
-              "seconds": 0.00115
+              "seconds": 0.00118
             },
             {
-              "id": "call_EVQz4J6r8NjCnNYsZOjiwDIo",
+              "id": "call_6KdDWNCIpCc31W5XmIHeEtmQ",
               "tool": "prepare_ticket",
               "result": {
-                "ticket_id": "TCK-5b0d2c86",
-                "path": "local-storage\\tickets\\TCK-5b0d2c86.json",
+                "ticket_id": "TCK-910e18ed",
+                "path": "local-storage/tickets/TCK-910e18ed.json",
                 "ticket": {
-                  "ticket_id": "TCK-5b0d2c86",
+                  "ticket_id": "TCK-910e18ed",
                   "status": "draft",
                   "user_id": "demo-user-a",
                   "thread_id": "s06",
                   "category": "wifi",
                   "summary": "Campus-Demo will not connect after Wi-Fi was enabled and the saved network was forgotten.",
                   "steps_tried": [
-                    "Enabled Wi-Fi.",
-                    "Forgot the saved network."
+                    "Enabled Wi-Fi",
+                    "Forgot the saved network"
                   ],
                   "service_status": "operational",
                   "status_profile": "normal",
@@ -134,12 +134,12 @@
                 "note": "Local draft only. Nothing was sent."
               },
               "source": "local ticket file",
-              "seconds": 0.00219
+              "seconds": 0.00187
             }
           ],
-          "final_response": "Wi‑Fi is **operational** with no reported outage.\n\nI prepared a local ticket draft:\n\n- **Ticket ID:** `TCK-5b0d2c86`\n- **File:** `local-storage\\ tickets\\ TCK-5b0d2c86.json`\n\nNothing was sent.",
+          "final_response": "Wi-Fi is currently **operational**, with no reported outage.\n\nI prepared a local ticket draft:\n\n- **Ticket ID:** TCK-910e18ed\n- **File:** `local-storage/tickets/TCK-910e18ed.json`\n\nNothing was sent.",
           "ticket_files": [
-            "local-storage\\tickets\\TCK-5b0d2c86.json"
+            "local-storage/tickets/TCK-910e18ed.json"
           ],
           "loop_limit_reached": false,
           "conversation_messages_after": 10

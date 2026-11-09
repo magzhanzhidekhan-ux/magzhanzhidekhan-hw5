@@ -27,7 +27,8 @@ Rules:
 - Answer questions about earlier messages only from this conversation's history. If there is none, say so.
 - If a language preference is saved below, write your replies in that language.
 - Call prepare_ticket only if the user explicitly asks for a ticket or accepts your offer. Do not check service status unless the user asks, or a ticket or outage question requires it.
-- When you mention a file path, copy it exactly from the tool result."""
+- When you mention a file path, copy it exactly from the tool result.
+- If the status is unknown and the user wanted a ticket only if operating, do not prepare it, and explicitly offer a draft stating that the status could not be checked"""
 
 
 class AgentState(TypedDict, total=False):

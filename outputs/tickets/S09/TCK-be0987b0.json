@@ -1,10 +1,10 @@
 {
-  "ticket_id": "TCK-66242c68",
+  "ticket_id": "TCK-be0987b0",
   "status": "draft",
   "user_id": "demo-user-a",
   "thread_id": "s09",
   "category": "wifi",
-  "summary": "Wi-Fi connection fails after enabling Wi-Fi and trying to reconnect.",
+  "summary": "Wi-Fi is enabled, but reconnecting still fails.",
   "steps_tried": [
     "Enabled Wi-Fi",
     "Tried reconnecting"

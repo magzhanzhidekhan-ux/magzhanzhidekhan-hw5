@@ -5,7 +5,7 @@
   "provider": "openai",
   "segments": [
     {
-      "process_id": 1684,
+      "process_id": 7192,
       "events": [
         {
           "scenario": "S09",
@@ -22,7 +22,7 @@
           ],
           "tool_requests": [],
           "tool_results": [],
-          "final_response": "What problem should the ticket describe—Wi‑Fi or a password/account-recovery issue? Also, what steps have you already tried?",
+          "final_response": "Sure. What problem should the ticket describe—Wi‑Fi or a password issue—and what steps have you already tried?",
           "ticket_files": [],
           "loop_limit_reached": false,
           "conversation_messages_after": 2
@@ -46,25 +46,25 @@
           ],
           "tool_requests": [
             {
-              "id": "call_PX3lia13lieldlEpFd89E4Di",
-              "tool": "find_instructions",
-              "args": {
-                "topic": "wifi"
-              }
-            },
-            {
-              "id": "call_TMJhyeiS2ezQyF1EqEX0YOCK",
+              "id": "call_CkjQycBCgyCNAdUZ7GnXN5Nt",
               "tool": "check_service_status",
               "args": {
                 "service": "wifi"
               }
             },
             {
-              "id": "call_rKLjOCpI39Or7NrvYib4WI4q",
+              "id": "call_mpuzymaaMijiop7AHweuEr3B",
+              "tool": "find_instructions",
+              "args": {
+                "topic": "wifi"
+              }
+            },
+            {
+              "id": "call_FDXoT5BAJLJMzEpJn5pTARVp",
               "tool": "prepare_ticket",
               "args": {
                 "category": "wifi",
-                "summary": "Wi-Fi connection fails after enabling Wi-Fi and trying to reconnect.",
+                "summary": "Wi-Fi is enabled, but reconnecting still fails.",
                 "steps_tried": [
                   "Enabled Wi-Fi",
                   "Tried reconnecting"
@@ -75,7 +75,19 @@
           ],
           "tool_results": [
             {
-              "id": "call_PX3lia13lieldlEpFd89E4Di",
+              "id": "call_CkjQycBCgyCNAdUZ7GnXN5Nt",
+              "tool": "check_service_status",
+              "result": {
+                "service": "wifi",
+                "status": "operational",
+                "message": "The demo Wi-Fi service has no reported outage.",
+                "status_profile": "normal"
+              },
+              "source": "data/service_status.json snapshot",
+              "seconds": 0.00105
+            },
+            {
+              "id": "call_mpuzymaaMijiop7AHweuEr3B",
               "tool": "find_instructions",
               "result": {
                 "topic": "wifi",
@@ -90,33 +102,21 @@
                 "source": "data/helpdesk.json"
               },
               "source": "reference file data/helpdesk.json",
-              "seconds": 0.00088
+              "seconds": 0.00047
             },
             {
-              "id": "call_TMJhyeiS2ezQyF1EqEX0YOCK",
-              "tool": "check_service_status",
-              "result": {
-                "service": "wifi",
-                "status": "operational",
-                "message": "The demo Wi-Fi service has no reported outage.",
-                "status_profile": "normal"
-              },
-              "source": "data/service_status.json snapshot",
-              "seconds": 0.00056
-            },
-            {
-              "id": "call_rKLjOCpI39Or7NrvYib4WI4q",
+              "id": "call_FDXoT5BAJLJMzEpJn5pTARVp",
               "tool": "prepare_ticket",
               "result": {
-                "ticket_id": "TCK-66242c68",
-                "path": "local-storage\\tickets\\TCK-66242c68.json",
+                "ticket_id": "TCK-be0987b0",
+                "path": "local-storage/tickets/TCK-be0987b0.json",
                 "ticket": {
-                  "ticket_id": "TCK-66242c68",
+                  "ticket_id": "TCK-be0987b0",
                   "status": "draft",
                   "user_id": "demo-user-a",
                   "thread_id": "s09",
                   "category": "wifi",
-                  "summary": "Wi-Fi connection fails after enabling Wi-Fi and trying to reconnect.",
+                  "summary": "Wi-Fi is enabled, but reconnecting still fails.",
                   "steps_tried": [
                     "Enabled Wi-Fi",
                     "Tried reconnecting"
@@ -130,12 +130,12 @@
                 "note": "Local draft only. Nothing was sent."
               },
               "source": "local ticket file",
-              "seconds": 0.00183
+              "seconds": 0.00179
             }
           ],
-          "final_response": "Your local support ticket draft is ready.\n\n- **Ticket ID:** TCK-66242c68\n- **File:** `local-storage\\tickets\\TCK-66242c68.json`\n- **Service status:** Operational\n\nNothing was sent.",
+          "final_response": "Your local support ticket draft is ready.\n\n- **Ticket ID:** TCK-be0987b0\n- **File:** `local-storage/tickets/TCK-be0987b0.json`\n- **Service status:** Operational\n\nNothing was sent.",
           "ticket_files": [
-            "local-storage\\tickets\\TCK-66242c68.json"
+            "local-storage/tickets/TCK-be0987b0.json"
           ],
           "loop_limit_reached": false,
           "conversation_messages_after": 9

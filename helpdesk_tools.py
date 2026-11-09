@@ -75,7 +75,7 @@ def prepare_ticket_impl(category, summary, steps_tried, service_status,
     folder.mkdir(exist_ok=True)
     path = folder / f"{ticket['ticket_id']}.json"
     path.write_text(json.dumps(ticket, indent=2, ensure_ascii=False), encoding="utf-8")
-    return {"ticket_id": ticket["ticket_id"], "path": str(path), "ticket": ticket,
+    return {"ticket_id": ticket["ticket_id"], "path": path.as_posix(), "ticket": ticket,
             "note": "Local draft only. Nothing was sent."}
 
 
